@@ -1,5 +1,4 @@
 def _cpf_impl(ctx):
-    print("HELLO")
     out = ctx.actions.declare_file(ctx.attr.out)
     ctx.actions.run(
         inputs = [ctx.file.template],
@@ -21,7 +20,7 @@ cpf = rule(
         "generator": attr.label(
             executable=True,
             cfg="exec",
-            default = "@cpf//:main",  # Default to the main generator
+            default = "@main_generator_archive//:main",  # Default to the main generator. # this can also be @cpf//:main if you want to use the main binary directly
         ),
     },
 )

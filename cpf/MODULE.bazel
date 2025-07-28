@@ -4,6 +4,7 @@ module(
 )
 
 bazel_dep(name = "rules_python", version = "1.5.1")
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
@@ -12,3 +13,6 @@ pip.parse(
     requirements_lock = "//:requirements_lock.txt",
 )
 use_repo(pip, "pypicpf")
+
+cpf_extension = use_extension("@cpf//:cpf_extension.bzl", "cpf_extension")
+use_repo(cpf_extension, "main_generator_archive")

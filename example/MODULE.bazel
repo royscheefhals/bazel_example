@@ -1,0 +1,13 @@
+module(
+    name = "example",
+    version = "0.1.0",
+)
+bazel_dep(name = "rules_cc", version = "0.1.4")
+
+
+bazel_dep(name = "cpf", version = "0.1.0")
+local_path_override(
+    module_name = "cpf",
+    path = "../cpf",
+)
+use_extension("@cpf//:cpf_extension.bzl", "cpf_extension")

@@ -1,0 +1,11 @@
+
+#include <iostream>
+#include <string>
+
+int main() {
+    int value = #{number};
+    std::cout << "The value is: " << value << std::endl;
+    std::string str = std::string("${string} blablalbal");
+    std::cout << "The string is: " << str << std::endl;
+    return 0;
+}
